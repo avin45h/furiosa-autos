@@ -1,10 +1,23 @@
 extends _shared
 
 block body
-	.models
-		h2 Models we work on
+    .models
+        h2 Models we work on
 
-		//- Implement sorting here
+        h4 Sort By
+        div.btn-toolbar
+            div.btn-group
+               a(href='/models')
+                    button.btn.btn-default None
+            div.btn-group
+                a(href='/models?type=alpha_asc')
+                    button.btn.btn-default A -> Z
+            div.btn-group
+                a(href='/models?type=alpha_desc')
+                    button.btn.btn-default Z -> A
+        hr
 
-		for model in models
-			h4= model
+        ul.list-group
+            for model in models
+                li.list-group-item
+                    h4= model

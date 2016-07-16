@@ -5,8 +5,18 @@ block body
 		h2 Customer reviews
 
 		//- Implement search here
+		form.navbar-form(action="/reviews" method="post")
+			div.input-group
+				input.form-control(role="search" name="q" placeholder="Type Text Here")
+				div.input-group-btn
+					button.btn.btn-default(type="submit") Search
 
-		for review in reviews
+		hr
+		if(reviews.length)
+			for review in reviews
+				blockquote
+					p= review.content
+					footer= review.source
+		else
 			blockquote
-				p= review.content
-				footer= review.source
+				p= "No Reviews Found With \"" + searchStr + "\""
